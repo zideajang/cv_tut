@@ -2,20 +2,15 @@ from PIL import Image
 from pylab import *
 import numpy as np
 import os
-pil_im = Image.open('empire.jpeg')
-im = np.array(pil_im)
+import camera
 
-im2 = 255 - im
-im3 = (100.0/255) * im - 100
-im4 = 255.0 * (im/255.0)**2
+points = loadtxt('house.p3d').T
+points = vstack((points,ones(points.shape[1])))
+
+P = hstack((eye(3),array([[0],[0],[-10]])))
+cam = camera.Camera(P)
+x = cam.project(points)
 
 figure()
-imshow(im)
-figure()
-imshow(im2)
-figure()
-imshow(im3)
-figure()
-imshow(im4)
-
+plot(x[0],x[1],'k.')
 show()
