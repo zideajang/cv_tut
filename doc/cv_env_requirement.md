@@ -1,4 +1,4 @@
-## 准备
+## 准备 CV 环境
 如何安装 opencv 
 推荐安装 conda 后在 conda 环境下安装 opencv
 1. 安装 conda(window 为例安装 conda) 这个很方便在官方安装即可
